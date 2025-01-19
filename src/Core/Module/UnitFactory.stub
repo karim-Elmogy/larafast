@@ -1,0 +1,28 @@
+<?php
+
+namespace #SELECTED_DIRECTORY#\#MODULE_NAME#\Database\Factories;
+
+use #SELECTED_DIRECTORY#\#MODULE_NAME#\Models\#UNIT_NAME# as Model;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class #UNIT_NAME#Factory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Model::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+#FACTORY_STR#
+        ];
+    }
+}

@@ -1,0 +1,30 @@
+<?php
+
+namespace #SELECTED_DIRECTORY#\#MODULE_NAME#\Tests\Feature;
+
+use Core\Base\Tests\ApiTestCase;
+use #SELECTED_DIRECTORY#\#MODULE_NAME#\Models\#UNIT_NAME# as Model;
+
+class #UNIT_NAME#Test extends ApiTestCase
+{
+    /**
+     * setting up
+     *
+     * @throws \ReflectionException
+     * @return void
+     */
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->base_url     = $this->getApiBaseUrl() . '#UNIT_NAME_PLURAL_LOWER_CASE#/';
+        $this->model        = new Model();
+        $this->data         = $this->model::factory()->make()->toArray();
+        $this->json         = $this->getJsonStructure();
+        $this->json['data'] = ['id'];
+
+        foreach ($this->data as $key => $value) {
+            $this->json['data'][] = $key;
+        }
+    }
+}

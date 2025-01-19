@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+>
+    <extensions>
+        <extension class="Elmogy\Larafast\Tests\Extension"/>
+    </extensions>
+    <testsuites>
+        <testsuite name="Unit">
+            <directory suffix="Test.php">./tests</directory>
+        </testsuite>
+    </testsuites>
+    <coverage>
+        <include>
+            <directory suffix=".php">./src</directory>
+        </include>
+        <exclude>
+            <directory suffix=".php">./src/Core</directory>
+            <file>./src/Support/Psr4AutoloaderClass.php</file>
+            <file>./src/Traits/Exceptions/Handler.php</file>
+            <file>./src/autoload.php</file>
+            <file>./src/config.php</file>
+            <file>./src/helpers.php</file>
+            <file>./src/ModuleServiceProvider.php</file>
+        </exclude>
+        <report>
+            <clover outputFile="clover.xml"/>
+        </report>
+    </coverage>
+    <php>
+        <server name="APP_ENV" value="testing"/>
+    </php>
+</phpunit>

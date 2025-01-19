@@ -1,0 +1,31 @@
+<?php
+
+namespace #SELECTED_DIRECTORY#\#MODULE_NAME#;
+
+use Illuminate\Support\ServiceProvider;
+use Core\Base\Traits\ServiceProvider\File;
+
+class ModuleServiceProvider extends ServiceProvider
+{
+    use File;
+
+    /**
+     * Register services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->loadFiles(__DIR__, '#UNIT_NAME_LOWER_CASE#'#IS_PLUGINS#);
+    }
+
+    /**
+     * Bootstrap services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //
+    }
+}

@@ -1,0 +1,494 @@
+{
+    "types": {
+        "bigIncrements": {
+            "has_value": false,
+            "request": "integer",
+            "factory": "integer",
+            "migration": "integer",
+            "resource" : ""
+        },
+        "bigInteger": {
+            "has_value": false,
+            "request": "integer",
+            "factory": "same_as_integer",
+            "migration": "integer",
+            "resource" : ""
+        },
+        "binary": {
+            "has_value": false,
+            "request": "string",
+            "factory": "text",
+            "migration": "binary",
+            "resource" : ""
+        },
+        "char": {
+            "has_value": true,
+            "value_type" : "one_value_argument",
+            "request": "string",
+            "factory": "word",
+            "migration": "char",
+            "resource" : "",
+            "required": true
+        },
+        "boolean": {
+            "has_value": false,
+            "request": "",
+            "factory": "boolean",
+            "migration": "boolean",
+            "resource" : ""
+        },
+        "dateTimeTz": {
+            "has_value": false,
+            "request": "date",
+            "factory": "dateTime",
+            "migration": "dateTimeTz",
+            "resource" : ""
+        },
+        "dateTime": {
+            "has_value": false,
+            "request": "date",
+            "factory": "dateTime",
+            "migration": "dateTimeTz",
+            "resource" : ""
+        },
+        "date": {
+            "has_value": false,
+            "request": "date",
+            "factory": "date",
+            "migration": "date",
+            "resource" : ""
+        },
+        "decimal": {
+            "has_value": false,
+            "request": "integer",
+            "factory": "integer",
+            "migration": "decimal",
+            "resource" : ""
+        },
+        "double": {
+            "has_value": false,
+            "request": "integer",
+            "factory": "integer",
+            "migration": "double",
+            "resource" : ""
+        },
+
+        "enum" : {
+            "has_value": true,
+            "value_type": "array",
+            "request": "",
+            "factory": "",
+            "migration": "enum",
+            "resource" : ""
+        },
+        "float": {
+            "has_value": false,
+            "request": "integer",
+            "factory": "integer",
+            "migration": "float",
+            "resource" : ""
+        },
+        "foreignId": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "foreignId",
+            "resource" : ""
+        },
+        "geometryCollection": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "geometryCollection",
+            "resource" : ""
+        },
+        "geometry": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "geometry",
+            "resource" : ""
+        },
+        "id": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "id",
+            "resource" : ""
+        },
+        "increments": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "increments",
+            "resource" : ""
+        },
+        "integer": {
+            "has_value": false,
+            "request": "integer",
+            "factory": "integer",
+            "migration": "integer",
+            "resource" : ""
+        },
+        "ipAddress": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "ipAddress",
+            "resource" : ""
+        },
+        "json": {
+            "has_value": false,
+            "request": "",
+            "factory": "json",
+            "migration": "json",
+            "resource" : ""
+        },
+        "jsonb": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "jsonb",
+            "resource" : ""
+        },
+
+        "lineString": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "lineString",
+            "resource" : ""
+        },
+
+        "longText": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "longText",
+            "resource" : ""
+        },
+
+        "macAddress": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "macAddress",
+            "resource" : ""
+        },
+
+        "mediumIncrements": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "mediumIncrements",
+            "resource" : ""
+        },
+
+        "mediumInteger": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "mediumInteger",
+            "resource" : ""
+        },
+
+        "mediumText": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "mediumText",
+            "resource" : ""
+        },
+
+        "morphs": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "morphs",
+            "resource" : ""
+        },
+
+        "multiLineString": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "multiLineString",
+            "resource" : ""
+        },
+
+        "multiPoint": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "multiPoint",
+            "resource" : ""
+        },
+
+        "multiPolygon": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "multiPolygon",
+            "resource" : ""
+        },
+
+        "nullableTimestamps": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "nullableTimestamps",
+            "resource" : ""
+        },
+
+        "nullableMorphs": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "nullableMorphs",
+            "resource" : ""
+        },
+
+        "nullableUuidMorphs": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "nullableUuidMorphs",
+            "resource" : ""
+        },
+
+        "point": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "point",
+            "resource" : ""
+        },
+
+        "polygon": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "polygon",
+            "resource" : ""
+        },
+
+        "rememberToken": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "rememberToken",
+            "resource" : ""
+        },
+
+        "set": {
+            "has_value": true,
+            "value_type": "array",
+            "request": "",
+            "factory": "",
+            "migration": "set",
+            "resource" : ""
+        },
+
+        "smallIncrements": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "smallIncrements",
+            "resource" : ""
+        },
+
+        "smallInteger": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "smallInteger",
+            "resource" : ""
+        },
+
+        "softDeletesTz": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "softDeletesTz",
+            "resource" : ""
+        },
+
+        "softDeletes": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "softDeletes",
+            "resource" : ""
+        },
+
+        "string": {
+            "has_value": false,
+            "request": "string",
+            "factory": {
+                "email": "safeEmail",
+                "url": "url",
+                "phone": "phoneNumber",
+                "default": "text"
+            },
+            "migration": "string",
+            "resource" : ""
+        },
+        "text": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "text",
+            "resource" : ""
+        },
+        "timeTz": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "timeTz",
+            "resource" : ""
+        },
+        "time": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "time",
+            "resource" : ""
+        },
+        "timestampTz": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "timestampTz",
+            "resource" : ""
+        },
+        "timestamp": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "timestamp",
+            "resource" : ""
+        },
+        "timestampsTz": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "timestampsTz",
+            "resource" : ""
+        },
+        "timestamps": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "timestamps",
+            "resource" : ""
+        },
+        "tinyIncrements": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "tinyIncrements",
+            "resource" : ""
+        },
+        "tinyInteger": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "tinyInteger",
+            "resource" : ""
+        },
+        "tinyText": {
+            "has_value": false,
+            "request": "string",
+            "factory": "text",
+            "migration": "tinyText",
+            "resource" : ""
+        },
+        "unsignedBigInteger": {
+            "has_value": false,
+            "request": "integer",
+            "factory": "integer",
+            "migration": "unsignedBigInteger",
+            "resource" : ""
+        },
+        "unsignedDecimal": {
+            "has_value": false,
+            "request": "integer",
+            "factory": "integer",
+            "migration": "unsignedDecimal",
+            "resource" : ""
+        },
+        "unsignedInteger": {
+            "has_value": false,
+            "request": "integer",
+            "factory": "integer",
+            "migration": "unsignedInteger",
+            "resource" : ""
+        },
+        "unsignedMediumInteger": {
+            "has_value": false,
+            "request": "integer",
+            "factory": "integer",
+            "migration": "unsignedMediumInteger",
+            "resource" : ""
+        },
+        "unsignedSmallInteger": {
+            "has_value": false,
+            "request": "integer",
+            "factory": "integer",
+            "migration": "unsignedSmallInteger",
+            "resource" : ""
+        },
+        "unsignedTinyInteger": {
+            "has_value": false,
+            "request": "integer",
+            "factory": "integer",
+            "migration": "unsignedTinyInteger",
+            "resource" : ""
+        },
+        "uuidMorphs": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "uuidMorphs",
+            "resource" : ""
+        },
+        "uuid": {
+            "has_value": false,
+            "request": "",
+            "factory": "",
+            "migration": "uuid",
+            "resource" : ""
+        },
+        "year": {
+            "has_value": false,
+            "request": "",
+            "factory": "year",
+            "migration": "year",
+            "resource" : ""
+        }
+    },
+    "definitions": {
+        "default": {
+            "has_value"  : true,
+            "value_type" : "one_value_argument",
+            "resource"   : "",
+            "request"    : "",
+            "factory"    : "",
+            "migration"  : "default"
+        },
+        "nullable": {
+            "has_value" : false,
+            "resource"  : "nullable",
+            "factory"   : "",
+            "migration" : "nullable",
+            "request"   : "nullable"
+        },
+        "unique": {
+            "has_value" : false,
+            "resource"  : "unique",
+            "request"   : "unique",
+            "factory"   : "unique",
+            "migration" : "unique"
+        }
+    }
+}
