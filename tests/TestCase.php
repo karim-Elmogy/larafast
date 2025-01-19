@@ -42,7 +42,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
         parent::setUp();
         $this->module     = 'Blog';
         $this->unit       = 'Post';
-        $this->root_dir   = config('laragine.root_dir');
+        $this->root_dir   = config('larafast.root_dir');
         $this->module_dir = $this->root_dir. '/' . $this->module;
     }
 

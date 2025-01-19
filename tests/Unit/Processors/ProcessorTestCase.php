@@ -53,7 +53,7 @@ class ProcessorTestCase extends TestCase
 
         $this->overrideDataFile($data);
 
-        $this->artisan("laragine:unit $this->unit --module=$this->module");
+        $this->artisan("larafast:unit $this->unit --module=$this->module");
     }
 
     /**

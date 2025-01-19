@@ -1,6 +1,6 @@
 ## Logs
 
-We recommend to use Laragine Logs as it adds more info to the error log, those are the details added:
+We recommend to use Larafast Logs as it adds more info to the error log, those are the details added:
 
 `route`: Name of the route if exists
 

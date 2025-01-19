@@ -13,7 +13,7 @@ class ModuleServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/config.php', 'laragine');
+        $this->mergeConfigFrom(__DIR__ . '/config.php', 'larafast');
 
         module_autoloader();
         module_autoloader('Plugins', base_path() . '/plugins');

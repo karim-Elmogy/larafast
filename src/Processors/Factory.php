@@ -33,7 +33,7 @@ class Factory
 
         $source_dir      = __DIR__ . '/../Core/Module';;
         $destination_dir = $units_data['module_dir'];
-        $files           = config('laragine.module.unit_folders');
+        $files           = config('larafast.module.unit_folders');
 
         $search = [
             'file'    => ['date', 'stub', 'Unit', 'units'],

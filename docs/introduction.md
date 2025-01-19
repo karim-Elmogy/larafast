@@ -1,10 +1,10 @@
 ## Introduction
 
-We developed Laragine to make the software development using Laravel faster and cleaner, so you can get things done faster, not only that, Laragine is not about quantity only, it's all about quantity and quality.
+We developed Larafast to make the software development using Laravel faster and cleaner, so you can get things done faster, not only that, Larafast is not about quantity only, it's all about quantity and quality.
 
 ### Features
 
-It's very important to know why to use Laragine, here is why:
+It's very important to know why to use Larafast, here is why:
 
 * A module based, meaning that you can separate all related stuff together
 
@@ -34,9 +34,9 @@ It's also very important to understand the following terms:
 
 ### Notes
 
-* Laragine currently is working on **Laravel 8.x, 9.x, 10.x and 11.x**
+* Larafast currently is working on **Laravel 8.x, 9.x, 10.x and 11.x**
 
-* Laragine directory will be in the root directory under `core` directory and as mentioned above there is also `plugins` directory
+* Larafast directory will be in the root directory under `core` directory and as mentioned above there is also `plugins` directory
 
 * The system response (including errors response if you applied what's in `Error Handling` section) to any request will be as in below examples (`status_code` is the http status code):
 

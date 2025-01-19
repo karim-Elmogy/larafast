@@ -1,20 +1,20 @@
 ## Error Handling
 
-We recommend to use Laragine to handle the errors in your application, as the package contains one clear structure to send the response back to the client side (mobile app, third party system, web app ...etc) so in order for you to do so, you have to do the following:
+We recommend to use Larafast to handle the errors in your application, as the package contains one clear structure to send the response back to the client side (mobile app, third party system, web app ...etc) so in order for you to do so, you have to do the following:
 
 
-in `app\Exceptions\Handler.php` use this trait `Yepwoo\Laragine\Traits\Exceptions\Handler` after that use this method `handleExceptions()` inside the `register()` method, here is the full code snippet:
+in `app\Exceptions\Handler.php` use this trait `Elmogy\Larafast\Traits\Exceptions\Handler` after that use this method `handleExceptions()` inside the `register()` method, here is the full code snippet:
 
 ```php
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
-use Yepwoo\Laragine\Traits\Exceptions\Handler as LaragineHandler;
+use Elmogy\Larafast\Traits\Exceptions\Handler as LarafastHandler;
 
 class Handler extends ExceptionHandler
 {
-    use LaragineHandler;
+    use LarafastHandler;
 
     ...
 
