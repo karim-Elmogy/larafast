@@ -4,6 +4,7 @@ Summary of all the commands:
 
 ### Install the package
 
+
 `php artisan larafast:install`
 
 ### Create new module
