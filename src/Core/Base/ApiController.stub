@@ -23,6 +23,8 @@ class Controller extends \App\Http\Controllers\Controller
      * @var Model
      */
     protected $model;
+    protected $queryItem;
+
 
     /**
      * the eloquent API resource
@@ -40,11 +42,12 @@ class Controller extends \App\Http\Controllers\Controller
      * @param string      $resource
      * @return void
      */
-    public function __construct(FormRequest $request, Model $model, $resource)
+    public function __construct(FormRequest $request, Model $model, $resource,$queryItem = [])
     {
         $this->request  = $request;
         $this->model    = $model;
         $this->resource = $resource;
+        $this->queryItem = $queryItem;
     }
 
     /**
@@ -54,7 +57,7 @@ class Controller extends \App\Http\Controllers\Controller
      */
     public function index()
     {
-        return $this->sendResponse($this->resource::collection($this->model->all()));
+        return $this->sendResponse($this->resource::collection($this->model->where($this->queryItem)->latest()->paginate($this->request->per_page ?? 10)));
     }
 
     /**
@@ -64,12 +67,14 @@ class Controller extends \App\Http\Controllers\Controller
      */
     public function store()
     {
-        return $this->sendResponse(
-            new $this->resource($this->model->create($this->request->all())),
-            'successfully created.',
-            true,
-            201
-        );
+       $this->model = $this->model->create($this->request->validated());
+
+       return $this->sendResponse(
+           new $this->resource($this->model),
+           'successfully created.',
+           true,
+           201
+       );
     }
 
     /**
@@ -91,9 +96,11 @@ class Controller extends \App\Http\Controllers\Controller
      */
     public function update($id)
     {
-        $current_model = $this->model->find($id);
-        $current_model->update($this->request->all());
-        return $this->sendResponse(new $this->resource($current_model), 'successfully updated.');
+        $model = $this->model->find($id);
+        $model->update($this->request->validated());
+        $this->model = $model;
+
+        return $this->sendResponse(new $this->resource($model), 'successfully updated.');
     }
 
     /**

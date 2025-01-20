@@ -47,6 +47,7 @@ return [
         'WebTestCase.stub'           => 'Tests/WebTestCase.php',
         'Uuid.stub'                  => 'Traits/Model/Uuid.php',
         'SendResponse.stub'          => 'Traits/Response/SendResponse.php',
+        'FilterService.stub'         => 'Services/FilterService.php',
         'File.stub'                  => 'Traits/ServiceProvider/File.php',
         'Module.stub'                => 'Traits/ServiceProvider/Module.php',
         'Path.stub'                  => 'Traits/Views/Path.php',
@@ -102,9 +103,10 @@ return [
             'date_create_units_table.stub'                 => 'Database/Migrations/',
             'UnitRequest.stub'                             => 'Requests/',
             'UnitResource.stub'                            => 'Resources/',
+            'UnitFilter.stub'                              => 'Filters/',
             'UnitTest.stub'                                => 'Tests/Feature/',
             'UnitFactory.stub'                             => 'Database/Factories/',
-            // base_path() . '/../Base/unit_template'         => 'views/'
+             base_path() . '/../Base/unit_template'        => 'views/'
         ],
         'advance' => [
             'Unit.json' => 'data/'

@@ -13,26 +13,53 @@ trait SendResponse
      * @param int $status_code
      * @return \Illuminate\Http\JsonResponse
      */
-    public function sendResponse($result = [], $message = 'Success.', $is_success = true, $status_code = 200)
-    {
-        $result_key = $is_success ? 'data' : 'errors';
 
-        $response   = [
-            'is_success'  => $is_success,
-            'status_code' => $status_code,
-            'message'     => $message,
-            $result_key   => $result
-        ];
 
-        // for paginated data
-        if (isset($result['data']) && isset($result['links']) && isset($result['meta'])) {
-            $response['data']  = $result['data'];
-            $response['links'] = $result['links'];
-            $response['meta']  = $result['meta'];
+     /**
+      * To Use This apiResponse function
+      * call namespace -- use App\Http\Traits\ApiResponseTrait; --
+      * call -- use ApiResponseTrait; --
+
+      * One Object
+      * return $this->sendResponse(new Resource(Model::latest()->paginate($request->per_page ?? 10)), customModel:Model::get()->count());
+
+      * All Objects
+      * return $this->sendResponse(Resource::collection(Model::latest()->paginate($request->per_page ?? 10)->items()), customModel:Model::get()->count());
+     */
+
+
+
+
+     public function sendResponse($result = [], $message = 'Success.', $is_success = true, $status_code = 200, $customModel = false)
+        {
+
+            $result_key = $is_success ? 'data' : 'errors';
+
+            $response = [
+                'endpointName' => app('request')->route()->uri(),
+                'is_success' => $is_success,
+                'status_code' => $status_code,
+                'message' => $message,
+                "current_page" => (int)request()->page ?? 1,
+                "total" => $customModel > 0 ? $customModel : (isset($this->model) ? $this->model->count() : 0),
+                "per_page" => request()->per_page ? (int) request()->per_page : 10,
+                "pages" => 0,
+
+                $result_key => $result,
+            ];
+
+            $response["pages"] = ceil($response["total"] / $response["per_page"]);
+
+            // for paginated data
+            if (isset($result['data']) && isset($result['links']) && isset($result['meta'])) {
+                $response['data'] = $result['data'];
+                $response['links'] = $result['links'];
+                $response['meta'] = $result['meta'];
+            }
+
+            return response()->json($response, $status_code);
         }
 
-        return response()->json($response, $status_code);
-    }
 
     /**
      * send the exception response

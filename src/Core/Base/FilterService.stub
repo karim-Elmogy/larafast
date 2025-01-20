@@ -1,0 +1,51 @@
+<?php
+
+namespace Core\Base\Services;
+
+use Illuminate\Http\Request;
+
+class FilterService
+{
+    protected $coulmnFilterMethod = [];
+    protected $coulmnMap = [];
+    protected $operatorMap = [
+        'eq' => '=',
+        'lt' => '<',
+        'gt' => '>',
+        'lte' => '<=',
+        'gte' => '>=',
+        'ne' => '<>',
+        'lk' => 'like',
+    ];
+
+    public function filterQuery(Request $request)
+    {
+        $query = [];
+        foreach ($this->coulmnFilterMethod as $column => $operators) {
+
+            $clientRequestData = $request->query($column);
+            if ($clientRequestData == null) {
+                $clientRequestData = $request->query($this->coulmnMap[$column]);
+            }
+
+            if (!isset($clientRequestData)) {
+                continue;
+            }
+
+            $dbColumn = $column;
+            // $dbColumn = $this->coulmnMap[$column] ?? $column;
+            foreach ($operators as $operator) {
+                if (isset($clientRequestData[$operator])) {
+                    if ($operator == 'lk') {
+                        $query[] = [$dbColumn, $this->operatorMap[$operator], '%' . $clientRequestData[$operator] . '%'];
+                    } else {
+                        $query[] = [$dbColumn, $this->operatorMap[$operator], $clientRequestData[$operator]];
+                    }
+                }
+            }
+        }
+
+        return $query;
+    }
+
+}

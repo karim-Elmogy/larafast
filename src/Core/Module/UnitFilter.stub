@@ -1,0 +1,18 @@
+<?php
+
+namespace #SELECTED_DIRECTORY#\#MODULE_NAME#\Filters;
+
+use Core\Base\Services\FilterService;
+
+class #UNIT_NAME#Filter extends FilterService
+{
+    protected $coulmnFilterMethod = [
+        'id' => ['eq','lk'],
+        'created_at' => ['eq','lk'],
+    ];
+    protected $coulmnMap = [
+        'id' => 'id',
+        'created_at' => 'createdAt',
+    ];
+}
+
