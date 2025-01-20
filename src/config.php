@@ -106,7 +106,7 @@ return [
             'UnitFilter.stub'                              => 'Filters/',
             'UnitTest.stub'                                => 'Tests/Feature/',
             'UnitFactory.stub'                             => 'Database/Factories/',
-            base_path() . '/core/Base/unit_template'       => 'views/'
+            '/../Base/unit_template'                       => 'views/'
         ],
         'advance' => [
             'Unit.json' => 'data/'
