@@ -1,0 +1,9 @@
+@extends($global['base']['namespace'] . 'layouts.master', [
+    // 'page_header' => '',
+    // 'page_description' => __(' النص ')
+])
+
+
+@section('content')
+      // test
+@endsection

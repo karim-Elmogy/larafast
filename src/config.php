@@ -97,7 +97,8 @@ return [
             'UnitApiController.stub'     => 'Controllers/API/V1/',
             'UnitWebController.stub'     => 'Controllers/Web/',
             'Unit.stub'                  => 'Models/',
-            'Unit.json'                  => 'data/'
+            'Unit.json'                  => 'data/',
+            'index.blade.stub'           => 'views/'
         ],
         'unit_folders' => [
             'date_create_units_table.stub'                 => 'Database/Migrations/',
