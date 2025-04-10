@@ -21,7 +21,7 @@ trait SendResponse
       * call -- use ApiResponseTrait; --
 
       * One Object
-      * return $this->sendResponse(new Resource(Model::latest()->paginate($request->per_page ?? 10)), customModel:Model::get()->count());
+      * return $this->sendResponse(new Resource(Model::find($id)));
 
       * All Objects
       * return $this->sendResponse(Resource::collection(Model::latest()->paginate($request->per_page ?? 10)->items()), customModel:Model::get()->count());
