@@ -40,7 +40,7 @@ trait SendResponse
                 'is_success' => $is_success,
                 'status_code' => $status_code,
                 'message' => $message,
-                "current_page" => (int)request()->page ?? 1,
+                "current_page" => (int)request()->page == 0 ? 1 : (int)request()->page,
                 "total" => $customModel > 0 ? $customModel : (isset($this->model) ? $this->model->count() : 0),
                 "per_page" => request()->per_page ? (int) request()->per_page : 10,
                 "pages" => 0,
