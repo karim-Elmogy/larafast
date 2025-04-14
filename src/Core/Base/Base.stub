@@ -16,11 +16,71 @@ class Base extends Model
      */
     protected $guarded = ['id', 'uuid', 'created_at', 'updated_at'];
 
+
+    protected array $jsonAttributes = [];
+
+    /**
+     * Override the `setAttribute` method to automatically encode JSON attributes.
+     */
+    public function setAttribute($key, $value)
+    {
+        if (in_array($key, $this->jsonAttributes) && is_array($value)) {
+            $value = json_encode($value, JSON_UNESCAPED_UNICODE);
+        }
+        parent::setAttribute($key, $value);
+    }
+
+
+
+    /**
+     * Override the `getAttribute` method to automatically decode JSON attributes.
+     */
+    public function getAttribute($key)
+    {
+        $value = parent::getAttribute($key);
+
+        if (in_array($key, $this->jsonAttributes) && is_string($value)) {
+            return json_decode($value, true);
+        }
+
+        return $value;
+    }
+
+    public function getUserLocale(): string
+    {
+        $acceptLanguage = Request::header('Accept-Language');
+        if ($acceptLanguage) {
+            return $acceptLanguage;
+        }
+        return app()->getLocale();
+    }
+
+
+    public function __get($key)
+    {
+        // Check if the key exists in the JSON attributes list
+        if (in_array($key, $this->jsonAttributes)) {
+            $localizedData = parent::__get($key);
+
+            if (is_string($localizedData)) {
+                $localizedData = json_decode($localizedData, true);
+            }
+
+            $locale = $this->getUserLocale();
+
+            return $localizedData[$locale] ?? $localizedData['ar'] ?? null;
+        }
+
+        return parent::__get($key);
+    }
+
+
     /**
      * Create a new factory instance for the model.
      *
      * @return \Illuminate\Database\Eloquent\Factories\Factory
      */
+
     protected static function newFactory()
     {
         $namespace        = explode('\\', static::class);
