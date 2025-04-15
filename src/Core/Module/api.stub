@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::group(['prefix' => '#UNIT_NAME_LOWER_CASE/api', 'middleware' => []], function () {
+Route::group(['prefix' => '#UNIT_NAME_LOWER_CASE#/api', 'middleware' => []], function () {
     # V1
     Route::namespace('#SELECTED_DIRECTORY#\#MODULE_NAME#\Controllers\API\V1')->prefix('v1')->name('api.v1.')->group(function () {
         #*** Ex: START: #UNIT_NAME# ***#
