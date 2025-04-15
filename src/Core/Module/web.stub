@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 Route::namespace('#SELECTED_DIRECTORY#\#MODULE_NAME#\Controllers\Web')->prefix('admin')->name('admin.')->group(function () {
     #*** Ex: START: #UNIT_NAME# ***#
     // Route::resource('#UNIT_NAME_PLURAL_LOWER_CASE#', '#UNIT_NAME#Controller')->except([

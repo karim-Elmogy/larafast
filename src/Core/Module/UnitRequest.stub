@@ -3,9 +3,14 @@
 namespace #SELECTED_DIRECTORY#\#MODULE_NAME#\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Core\Base\Traits\Response\SendResponse;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class #UNIT_NAME#Request extends FormRequest
 {
+    use SendResponse ;
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -15,6 +20,21 @@ class #UNIT_NAME#Request extends FormRequest
     {
         return true;
     }
+
+      /**
+       *   public function prepareForValidation()
+       *     {
+       *
+       *         if (app()->runningInConsole()) {
+       *             return;
+       *         }
+       *         if ($this->method() == 'POST' || $this->method() == 'PUT') {
+       *             $this->merge([
+       *                 'key'=> 'value',
+       *            ]);
+       *       }
+       *     }
+       */
 
     /**
      * Get the validation rules that apply to the request.
@@ -30,14 +50,30 @@ class #UNIT_NAME#Request extends FormRequest
             }
             case 'POST': {
                 return [
-#REQUEST_STR#
+                    #REQUEST_STR#
                 ];
             }
             case 'PUT': {
                 return [
-#REQUEST_STR#
+                    #REQUEST_STR#
                 ];
             }
         }
     }
+
+
+     protected function failedValidation(Validator $validator)
+     {
+        throw new HttpResponseException($this->sendResponse(['message'=>$validator->errors()->first()],'failed', false, 422));
+     }
+
+
+    /**
+    * public function withValidator($validator)
+    * {
+    *  //  $validator->sometimes('key_1', 'required', function ($input) {
+    *  //      return $input->key_2 === 'test';
+    *  //  });
+    * }
+    */
 }
